@@ -3,20 +3,17 @@
 /* =========================================================
    Константи
    ========================================================= */
-const SELECTORS = {
-  topic: '.topic',
-  topicHeader: '.topic__header',
-};
 const CLASSES = {
   open: 'is-open',
   visible: 'is-visible',
   active: 'is-active',
+  copied: 'is-copied',
 };
 const STORAGE_KEYS = {
-  theme: 'web-zero-theme',
-  todos: 'web-zero-todos',
+  theme: 'site-path-theme',
 };
 const TO_TOP_OFFSET = 400;
+const TOAST_DURATION = 2000;
 
 /* Безпечна робота з localStorage */
 const storage = {
@@ -32,21 +29,33 @@ const storage = {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      /* сховище недоступне — просто ігноруємо */
+      /* сховище недоступне — ігноруємо */
     }
   },
 };
 
 /* =========================================================
+   Спливне повідомлення
+   ========================================================= */
+const toast = document.getElementById('toast');
+let toastTimer;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add(CLASSES.visible);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove(CLASSES.visible), TOAST_DURATION);
+}
+
+/* =========================================================
    Акордеон: теми, що розкриваються
    ========================================================= */
-const topics = document.querySelectorAll(SELECTORS.topic);
+const topics = document.querySelectorAll('.topic');
 const toggleAllBtn = document.getElementById('toggleAll');
 
 function setTopic(topic, open) {
-  const header = topic.querySelector(SELECTORS.topicHeader);
   topic.classList.toggle(CLASSES.open, open);
-  header.setAttribute('aria-expanded', String(open));
+  topic.querySelector('.topic__header').setAttribute('aria-expanded', String(open));
 }
 
 function updateToggleAllLabel() {
@@ -56,11 +65,10 @@ function updateToggleAllLabel() {
 }
 
 topics.forEach((topic, i) => {
-  const header = topic.querySelector(SELECTORS.topicHeader);
+  const header = topic.querySelector('.topic__header');
   const body = topic.querySelector('.topic__body');
-  const id = `topic-body-${i}`;
-  body.id = id;
-  header.setAttribute('aria-controls', id);
+  body.id = `topic-body-${i}`;
+  header.setAttribute('aria-controls', body.id);
 
   header.addEventListener('click', () => {
     setTopic(topic, !topic.classList.contains(CLASSES.open));
@@ -72,6 +80,65 @@ toggleAllBtn.addEventListener('click', () => {
   const shouldOpen = ![...topics].every((t) => t.classList.contains(CLASSES.open));
   topics.forEach((t) => setTopic(t, shouldOpen));
   updateToggleAllLabel();
+});
+
+/* Перехід за посиланням на етап — відкриваємо його першу тему */
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    const firstTopic = target && target.querySelector('.topic');
+    if (firstTopic && !firstTopic.classList.contains(CLASSES.open)) {
+      setTopic(firstTopic, true);
+      updateToggleAllLabel();
+    }
+  });
+});
+
+/* =========================================================
+   Кнопка «Копіювати» для кожного блоку коду
+   ========================================================= */
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const area = document.createElement('textarea');
+  area.value = text;
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.append(area);
+  area.select();
+  document.execCommand('copy');
+  area.remove();
+}
+
+document.querySelectorAll('pre.code').forEach((pre) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'code-wrap';
+  pre.before(wrap);
+  wrap.append(pre);
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'copy-btn';
+  btn.textContent = 'Копіювати';
+  btn.setAttribute('aria-label', 'Скопіювати код');
+  wrap.append(btn);
+
+  btn.addEventListener('click', async () => {
+    try {
+      await copyText(pre.innerText.trim());
+      btn.textContent = 'Скопійовано ✓';
+      btn.classList.add(CLASSES.copied);
+      showToast('Код скопійовано');
+    } catch {
+      showToast('Не вдалося скопіювати');
+    }
+    setTimeout(() => {
+      btn.textContent = 'Копіювати';
+      btn.classList.remove(CLASSES.copied);
+    }, TOAST_DURATION);
+  });
 });
 
 /* =========================================================
@@ -87,9 +154,7 @@ function setMenu(open) {
 }
 
 burger.addEventListener('click', () => setMenu(!nav.classList.contains(CLASSES.open)));
-nav.querySelectorAll('.nav__link').forEach((link) =>
-  link.addEventListener('click', () => setMenu(false))
-);
+nav.querySelectorAll('.nav__link').forEach((link) => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('click', (e) => {
   if (!nav.contains(e.target) && !burger.contains(e.target)) setMenu(false);
 });
@@ -164,117 +229,10 @@ window.addEventListener(
 toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* =========================================================
-   Демо: лічильник
+   Демо з кроку 3.4 — той самий код, що в інструкції
    ========================================================= */
-const counterBtn = document.getElementById('counterBtn');
-const counterValue = document.getElementById('counterValue');
-const counterReset = document.getElementById('counterReset');
-let count = 0;
-
-counterBtn.addEventListener('click', () => {
-  count++;
-  counterValue.textContent = count;
-});
-counterReset.addEventListener('click', () => {
-  count = 0;
-  counterValue.textContent = count;
-});
-
-/* =========================================================
-   Демо: список справ (зберігається в браузері)
-   ========================================================= */
-const todoForm = document.getElementById('todoForm');
-const todoInput = document.getElementById('todoInput');
-const todoList = document.getElementById('todoList');
-let todos = storage.get(STORAGE_KEYS.todos, [
-  { id: 1, text: 'Вивчити семантичні теги', done: true },
-  { id: 2, text: 'Зробити адаптивну галерею', done: false },
-]);
-
-function saveTodos() {
-  storage.set(STORAGE_KEYS.todos, todos);
-}
-
-function renderTodos() {
-  todoList.innerHTML = '';
-  todos.forEach((todo) => {
-    const li = document.createElement('li');
-    li.className = `todo__item${todo.done ? ' is-done' : ''}`;
-
-    const check = document.createElement('input');
-    check.type = 'checkbox';
-    check.className = 'todo__check';
-    check.checked = todo.done;
-    check.setAttribute('aria-label', `Виконано: ${todo.text}`);
-    check.addEventListener('change', () => {
-      todo.done = check.checked;
-      saveTodos();
-      renderTodos();
-    });
-
-    const text = document.createElement('span');
-    text.className = 'todo__text';
-    text.textContent = todo.text;
-
-    const remove = document.createElement('button');
-    remove.type = 'button';
-    remove.className = 'todo__remove';
-    remove.textContent = '✕';
-    remove.setAttribute('aria-label', `Видалити: ${todo.text}`);
-    remove.addEventListener('click', () => {
-      todos = todos.filter((t) => t.id !== todo.id);
-      saveTodos();
-      renderTodos();
-    });
-
-    li.append(check, text, remove);
-    todoList.append(li);
-  });
-}
-
-todoForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const text = todoInput.value.trim();
-  if (!text) return;
-  todos.push({ id: Date.now(), text, done: false });
-  todoInput.value = '';
-  saveTodos();
-  renderTodos();
-});
-
-renderTodos();
-
-/* =========================================================
-   Форма контактів (перевірка полів)
-   ========================================================= */
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let valid = true;
-
-  contactForm.querySelectorAll('.input').forEach((field) => {
-    const ok = field.checkValidity() && field.value.trim() !== '';
-    field.classList.toggle('is-invalid', !ok);
-    if (!ok) valid = false;
-  });
-
-  formStatus.className = 'form-status';
-  if (!valid) {
-    formStatus.textContent = 'Будь ласка, заповніть усі поля правильно.';
-    formStatus.classList.add('is-error');
-    return;
-  }
-
-  const name = contactForm.elements.name.value.trim();
-  formStatus.textContent = `Дякуємо, ${name}! Повідомлення отримано.`;
-  formStatus.classList.add('is-success');
-  contactForm.reset();
-});
-
-contactForm.addEventListener('input', (e) => {
-  if (e.target.classList.contains('is-invalid')) e.target.classList.remove('is-invalid');
+document.getElementById('helloBtn').addEventListener('click', function () {
+  alert('Вітаю! Ви створили свій перший сайт 🚀');
 });
 
 /* =========================================================

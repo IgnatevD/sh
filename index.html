@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Веб-розробка для початківців: HTML, CSS і JavaScript простою мовою." />
+  <meta name="description" content="Шлях створення сайту: від ідеї до публікації. VS Code, Git, GitHub, Netlify, ШІ та індексація в Google." />
   <meta name="theme-color" content="#eef1f7" />
-  <title>Веб з нуля — HTML, CSS, JavaScript</title>
+  <title>Шлях створення сайту — від ідеї до публікації</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -20,21 +20,21 @@
 
   <header class="header glass" id="top">
     <div class="container header__inner">
-      <a href="#top" class="logo"><span class="logo__mark">&lt;/&gt;</span> Веб з нуля</a>
+      <a href="#top" class="logo"><span class="logo__mark">&lt;/&gt;</span> Від ідеї до сайту</a>
 
       <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
 
       <nav class="nav" id="nav">
-        <a href="#about" class="nav__link">Про проєкт</a>
-        <a href="#html" class="nav__link">HTML</a>
-        <a href="#css" class="nav__link">CSS</a>
-        <a href="#js" class="nav__link">JavaScript</a>
-        <a href="#practice" class="nav__link">Практика</a>
-        <a href="#contacts" class="nav__link">Контакти</a>
+        <a href="#setup" class="nav__link">Середовище</a>
+        <a href="#github" class="nav__link">GitHub</a>
+        <a href="#create" class="nav__link">Сайт</a>
+        <a href="#netlify" class="nav__link">Netlify</a>
+        <a href="#ai" class="nav__link">ШІ</a>
+        <a href="#google" class="nav__link">Google</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Перемкнути тему">
-          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span aria-hidden="true">◐</span>
         </button>
       </nav>
     </div>
@@ -45,61 +45,106 @@
     <section class="hero">
       <div class="container">
         <div class="hero__card glass reveal">
-          <p class="hero__eyebrow">Курс для початківців · ХАІ</p>
-          <h1 class="hero__title">Створюй сайти з&nbsp;нуля — <span class="accent">крок за&nbsp;кроком</span></h1>
-          <p class="hero__text">Три мови, на яких тримається весь веб: HTML дає структуру, CSS — вигляд, JavaScript — поведінку. Обирай тему й натискай, щоб розгорнути.</p>
+          <p class="hero__eyebrow">Покрокова інструкція</p>
+          <h1 class="hero__title">Шлях створення сайту: <span class="accent">від ідеї до&nbsp;публікації</span></h1>
+          <p class="hero__text">Від встановлення редактора до сайту, який знаходить Google. Обирай етап і натискай на тему, щоб розгорнути інструкцію.</p>
           <div class="hero__actions">
-            <a href="#html" class="btn btn--primary">Почати навчання</a>
+            <a href="#setup" class="btn btn--primary">Почати з кроку 1</a>
             <button class="btn btn--ghost" id="toggleAll" aria-pressed="false">Розгорнути все</button>
           </div>
-          <ul class="stats">
-            <li class="stats__item"><strong>3</strong><span>мови</span></li>
-            <li class="stats__item"><strong>19</strong><span>тем</span></li>
-            <li class="stats__item"><strong>0</strong><span>фреймворків</span></li>
-          </ul>
+          <ol class="roadmap">
+            <li><a href="#setup"><span>1</span>Середовище</a></li>
+            <li><a href="#github"><span>2</span>GitHub</a></li>
+            <li><a href="#create"><span>3</span>Сайт</a></li>
+            <li><a href="#netlify"><span>4</span>Netlify</a></li>
+            <li><a href="#ai"><span>5</span>ШІ</a></li>
+            <li><a href="#google"><span>6</span>Google</a></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
+    <!-- 1. SETUP -->
+    <section class="section" id="setup">
       <div class="container">
         <header class="section__head reveal">
-          <span class="section__icon">✦</span>
+          <span class="section__icon">🛠️</span>
           <div>
-            <h2 class="section__title">Про проєкт</h2>
-            <p class="section__subtitle">Що це за сайт і як ним користуватися</p>
+            <p class="section__step">Етап 1</p>
+            <h2 class="section__title">Підготовка середовища</h2>
+            <p class="section__subtitle">Інструменти й облікові записи, які знадобляться</p>
           </div>
         </header>
 
         <div class="accordion reveal">
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Для кого цей сайт</span>
+              <span class="topic__num">1.1</span>
+              <span class="topic__title">🧩 Встановлення VS Code</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <p>Для студентів і всіх, хто робить перші кроки у веб-розробці. Не потрібно нічого встановлювати, крім браузера та текстового редактора.</p>
-              <ul class="list">
-                <li>Короткі пояснення без зайвої теорії</li>
-                <li>Приклади коду, які можна одразу спробувати</li>
-                <li>Порядок тем від простого до складного</li>
-              </ul>
+              <p><strong>VS Code (Visual Studio Code)</strong> — безкоштовний, легкий і зручний редактор для веброзробки.</p>
+              <h4 class="topic__subhead">🔹 Як встановити</h4>
+              <ol class="list list--num">
+                <li>Перейди на <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a>.</li>
+                <li>Завантаж версію для своєї операційної системи (Windows, macOS або Linux).</li>
+                <li>Встанови програму, залишаючи стандартні налаштування.</li>
+              </ol>
             </div></div>
           </article>
 
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Що знадобиться</span>
+              <span class="topic__num">1.2</span>
+              <span class="topic__title">⚙️ Встановлення Git</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <div class="cards">
-                <div class="mini-card"><span class="mini-card__emoji">🌐</span><h4>Браузер</h4><p>Chrome, Firefox, Safari або Edge з інструментами розробника (F12).</p></div>
-                <div class="mini-card"><span class="mini-card__emoji">📝</span><h4>Редактор</h4><p>Visual Studio Code — безкоштовний і зручний.</p></div>
-                <div class="mini-card"><span class="mini-card__emoji">☕</span><h4>Терпіння</h4><p>Помилки — нормальна частина навчання.</p></div>
+              <p><strong>Git</strong> — система контролю версій. Вона дозволяє зберігати зміни в коді, працювати з репозиторіями на GitHub і публікувати сайт на Netlify.</p>
+              <h4 class="topic__subhead">🔹 Як встановити</h4>
+              <ol class="list list--num">
+                <li>Зайди на <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git-scm.com/downloads</a>.</li>
+                <li>Завантаж і встанови Git (натискай «Next» усюди за замовчуванням).</li>
+                <li>Відкрий <strong>термінал VS Code</strong> або <strong>Command Prompt</strong> і введи:</li>
+              </ol>
+<pre class="code"><code>git --version</code></pre>
+              <p class="note note--success">✅ Якщо бачиш номер версії — Git встановлено успішно.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">1.3</span>
+              <span class="topic__title">🧠 Налаштування Git</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Перед першою роботою з Git введи свої дані в терміналі (лише один раз):</p>
+<pre class="code"><code>git config --global user.name "Твоє ім’я"
+git config --global user.email "твоя@пошта.com"</code></pre>
+              <p class="note">💡 Це потрібно, щоб коміти на GitHub підписувалися твоїм ім’ям.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">1.4</span>
+              <span class="topic__title">🔑 Створи облікові записи</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <div class="cards cards--2">
+                <div class="mini-card">
+                  <span class="mini-card__emoji">🐙</span>
+                  <h4><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></h4>
+                  <p>Зареєструйся або увійди. Тут зберігатиметься твій сайт (репозиторій).</p>
+                </div>
+                <div class="mini-card">
+                  <span class="mini-card__emoji">🌐</span>
+                  <h4><a href="https://www.netlify.com" target="_blank" rel="noopener">Netlify</a></h4>
+                  <p>Створи акаунт через GitHub — так простіше підключити сайт. Netlify сам підключиться до репозиторію й опублікує сайт онлайн.</p>
+                </div>
               </div>
             </div></div>
           </article>
@@ -107,377 +152,444 @@
       </div>
     </section>
 
-    <!-- HTML -->
-    <section class="section" id="html">
+    <!-- 2. GITHUB -->
+    <section class="section" id="github">
       <div class="container">
         <header class="section__head reveal">
-          <span class="section__icon section__icon--html">H</span>
+          <span class="section__icon">🧱</span>
           <div>
-            <h2 class="section__title">HTML5</h2>
-            <p class="section__subtitle">Каркас сторінки: що і де розташовано</p>
+            <p class="section__step">Етап 2</p>
+            <h2 class="section__title">Git-репозиторій і GitHub</h2>
+            <p class="section__subtitle">🎯 Зберегти проєкт у хмарі, щоб його бачили інші й міг підключити Netlify</p>
           </div>
         </header>
 
         <div class="accordion reveal">
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Структура документа</span>
+              <span class="topic__num">2.1</span>
+              <span class="topic__title">Створи репозиторій на GitHub</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <p>Кожна сторінка починається з однакового «скелета». У <code>&lt;head&gt;</code> — службова інформація, у <code>&lt;body&gt;</code> — усе, що бачить користувач.</p>
+              <ol class="list list--num">
+                <li>Зайди на <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.</li>
+                <li>У верхньому правому куті натисни <strong>«+» → New repository</strong>.</li>
+                <li>Введи назву, наприклад: <code>webcourse</code>.</li>
+                <li>Обери <strong>Public</strong>, щоб сайт був доступний усім.</li>
+                <li>Натисни <strong>Create repository</strong>.</li>
+              </ol>
+              <p>GitHub створить порожнє сховище й покаже інструкції, як підключити його до локального проєкту.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">2.2</span>
+              <span class="topic__title">💻 Підключи Git до папки сайту у VS Code</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Обери папку, де зберігатиметься проєкт, і відкрий її через <strong>File → Open Folder</strong> (Файл → Відкрити папку).</li>
+                <li>Увімкни <strong>термінал</strong>: <kbd>Ctrl</kbd> + <kbd>`</kbd> або меню <strong>View → Terminal</strong>.</li>
+                <li>Склонуй свій репозиторій:</li>
+              </ol>
+<pre class="code"><code>git clone https://github.com/твій_логін/webcourse.git</code></pre>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CREATE -->
+    <section class="section" id="create">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon">⚙️</span>
+          <div>
+            <p class="section__step">Етап 3</p>
+            <h2 class="section__title">Створення сайту</h2>
+            <p class="section__subtitle">HTML + CSS + JS + ШІ</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">3.1</span>
+              <span class="topic__title">Створи файли проєкту</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>У папці <code>webcourse</code> створи 3 файли:</p>
+              <div class="files">
+                <span class="file file--html">index.html</span>
+                <span class="file file--css">style.css</span>
+                <span class="file file--js">script.js</span>
+              </div>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">3.2</span>
+              <span class="topic__title">Напиши базову структуру сайту</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p class="code-label">index.html</p>
 <pre class="code"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="uk"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Моя сторінка&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Привіт!&lt;/h1&gt;
-  &lt;/body&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;Мій перший сайт&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Всім привіт! 👋&lt;/h1&gt;
+  &lt;p&gt;Це мій перший сайт на HTML, CSS і JavaScript.&lt;/p&gt;
+  &lt;button id="helloBtn"&gt;Натисни мене&lt;/button&gt;
+
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
 &lt;/html&gt;</code></pre>
             </div></div>
           </article>
 
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Семантичні теги</span>
+              <span class="topic__num">3.3</span>
+              <span class="topic__title">Додай стилі</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <p>Семантичні теги підказують браузеру, пошуковикам і екранним читачам, яку роль виконує блок.</p>
-              <div class="tags">
-                <span class="tag">&lt;header&gt;</span><span class="tag">&lt;nav&gt;</span><span class="tag">&lt;main&gt;</span>
-                <span class="tag">&lt;section&gt;</span><span class="tag">&lt;article&gt;</span><span class="tag">&lt;aside&gt;</span><span class="tag">&lt;footer&gt;</span>
-              </div>
-              <p class="note">💡 Замість десятка <code>&lt;div&gt;</code> обирай тег, що описує зміст.</p>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">03</span>
-              <span class="topic__title">Посилання, зображення, списки</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-<pre class="code"><code>&lt;a href="https://khai.edu"&gt;Сайт ХАІ&lt;/a&gt;
-&lt;img src="photo.jpg" alt="Опис фото"&gt;
-&lt;ul&gt;
-  &lt;li&gt;Перший пункт&lt;/li&gt;
-  &lt;li&gt;Другий пункт&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-              <p class="note">💡 Атрибут <code>alt</code> обов’язковий: його читають люди з вадами зору.</p>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">04</span>
-              <span class="topic__title">Форми</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Форми збирають дані від користувача. Кожне поле варто підписати через <code>&lt;label&gt;</code>.</p>
-<pre class="code"><code>&lt;form&gt;
-  &lt;label for="email"&gt;Email&lt;/label&gt;
-  &lt;input id="email" type="email" required&gt;
-  &lt;button type="submit"&gt;Надіслати&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-            </div></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CSS -->
-    <section class="section" id="css">
-      <div class="container">
-        <header class="section__head reveal">
-          <span class="section__icon section__icon--css">C</span>
-          <div>
-            <h2 class="section__title">CSS3</h2>
-            <p class="section__subtitle">Кольори, відступи, сітки й анімації</p>
-          </div>
-        </header>
-
-        <div class="accordion reveal">
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Селектори та каскад</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Селектор обирає елементи, а правила описують їхній вигляд. Якщо правила конфліктують, перемагає конкретніше або те, що написане пізніше.</p>
-<pre class="code"><code>p          { color: gray; }   /* тег   */
-.card      { padding: 16px; } /* клас  */
-#main      { width: 100%; }   /* id    */
-.btn:hover { opacity: .8; }   /* стан  */</code></pre>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Змінні (custom properties)</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Кольори й розміри зручно тримати в одному місці. Саме так зроблено і цей сайт.</p>
-<pre class="code"><code>:root {
-  --color-accent: #5b6cff;
-  --radius: 16px;
-}
-.btn {
-  background: var(--color-accent);
-  border-radius: var(--radius);
-}</code></pre>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">03</span>
-              <span class="topic__title">Flexbox і Grid</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p><strong>Flexbox</strong> вирівнює елементи в рядок або колонку, <strong>Grid</strong> будує двовимірну сітку.</p>
-              <div class="demo-grid" aria-hidden="true">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
-              </div>
-<pre class="code"><code>.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
-}</code></pre>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">04</span>
-              <span class="topic__title">Mobile-first і медіазапити</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Спочатку пишемо стилі для телефона, а потім додаємо правила для ширших екранів. Змініть ширину вікна — цей сайт перебудується.</p>
-<pre class="code"><code>.cards { display: grid; gap: 12px; }
-
-@media (min-width: 768px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
-}</code></pre>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">05</span>
-              <span class="topic__title">Glassmorphism</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Ефект матового скла — напівпрозорий фон плюс розмиття того, що позаду.</p>
-<pre class="code"><code>.glass {
-  background: rgba(255, 255, 255, .45);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, .6);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, .08);
-}</code></pre>
-            </div></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- JS -->
-    <section class="section" id="js">
-      <div class="container">
-        <header class="section__head reveal">
-          <span class="section__icon section__icon--js">JS</span>
-          <div>
-            <h2 class="section__title">JavaScript</h2>
-            <p class="section__subtitle">Оживлюємо сторінку</p>
-          </div>
-        </header>
-
-        <div class="accordion reveal">
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Змінні та типи даних</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-<pre class="code"><code>const name = 'Олена';     // рядок, не змінюється
-let age = 19;             // число, можна змінити
-const isStudent = true;   // логічне значення
-const skills = ['HTML', 'CSS'];  // масив</code></pre>
-              <p class="note">💡 За замовчуванням пиши <code>const</code>, а <code>let</code> — лише коли значення справді змінюється.</p>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Функції</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-<pre class="code"><code>function greet(name) {
-  return `Привіт, ${name}!`;
+              <p class="code-label">style.css</p>
+<pre class="code"><code>body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  background-color: #f0f0f0;
 }
 
-const square = (n) =&gt; n * n;
+h1 {
+  color: #333;
+}
 
-greet('ХАІ');  // "Привіт, ХАІ!"
-square(4);     // 16</code></pre>
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}</code></pre>
             </div></div>
           </article>
 
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">03</span>
-              <span class="topic__title">Робота з DOM і подіями</span>
+              <span class="topic__num">3.4</span>
+              <span class="topic__title">Додай JavaScript</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <p>DOM — це сторінка у вигляді об’єктів, які JavaScript може змінювати. Спробуйте:</p>
-              <div class="demo">
-                <button class="btn btn--primary" id="counterBtn">Натиснули: <span id="counterValue">0</span></button>
-                <button class="btn btn--ghost" id="counterReset">Скинути</button>
-              </div>
-<pre class="code"><code>const btn = document.querySelector('#counterBtn');
-let count = 0;
-
-btn.addEventListener('click', () =&gt; {
-  count++;
-  btn.querySelector('span').textContent = count;
+              <p class="code-label">script.js</p>
+<pre class="code"><code>document.getElementById("helloBtn").addEventListener("click", function () {
+  alert("Вітаю! Ви створили свій перший сайт 🚀");
 });</code></pre>
+              <p>Спробуй, як це працює:</p>
+              <div class="demo">
+                <button class="btn btn--primary" id="helloBtn">Натисни мене</button>
+              </div>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">3.5</span>
+              <span class="topic__title">Збережи зміни на GitHub</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Після кожної зміни коду введи в терміналі VS Code:</p>
+<pre class="code"><code>git add .
+git commit -m "update site"
+git push</code></pre>
+              <dl class="terms">
+                <div><dt><code>git add</code></dt><dd>додати файл або зміни до черги збереження</dd></div>
+                <div><dt><code>.</code></dt><dd>крапка — усі файли в поточній папці та підпапках</dd></div>
+                <div><dt><code>git commit</code></dt><dd>зберігає зміни в локальній історії</dd></div>
+                <div><dt><code>-m</code></dt><dd>message — повідомлення до коміту</dd></div>
+                <div><dt><code>"update site"</code></dt><dd>короткий опис того, що саме ти змінив</dd></div>
+                <div><dt><code>git push</code></dt><dd>надсилає ці зміни на GitHub</dd></div>
+              </dl>
             </div></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PRACTICE -->
-    <section class="section" id="practice">
+    <!-- 4. NETLIFY -->
+    <section class="section" id="netlify">
       <div class="container">
         <header class="section__head reveal">
-          <span class="section__icon">✎</span>
+          <span class="section__icon">🚀</span>
           <div>
-            <h2 class="section__title">Практика</h2>
-            <p class="section__subtitle">Завдання, щоб закріпити знання</p>
+            <p class="section__step">Етап 4</p>
+            <h2 class="section__title">Публікація через Netlify</h2>
+            <p class="section__subtitle">Сайт онлайн за кілька хвилин</p>
           </div>
         </header>
 
         <div class="accordion reveal">
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Сторінка-візитка</span>
+              <span class="topic__num">4.1</span>
+              <span class="topic__title">⚙️ Підключення до GitHub</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
               <ol class="list list--num">
-                <li>Створи <code>index.html</code> з фото, ім’ям і коротким описом.</li>
-                <li>Додай список своїх навичок і посилання на соцмережі.</li>
-                <li>Підключи <code>style.css</code> і винеси кольори у змінні.</li>
+                <li>Перейди на <a href="https://www.netlify.com" target="_blank" rel="noopener">netlify.com</a>.</li>
+                <li>Натисни <strong>Log in → GitHub</strong> і увійди через свій акаунт.</li>
+                <li>Після входу натисни <strong>Add new site → Import an existing project</strong>.</li>
+                <li>Обери <strong>GitHub</strong> як джерело коду.</li>
               </ol>
             </div></div>
           </article>
 
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Адаптивна галерея</span>
+              <span class="topic__num">4.2</span>
+              <span class="topic__title">🌐 Вибери свій репозиторій</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
               <ol class="list list--num">
-                <li>Зроби сітку з 6–9 зображень через CSS Grid.</li>
-                <li>На телефоні — 1 колонка, на планшеті — 2, на ПК — 3.</li>
-                <li>Додай плавне збільшення картинки при наведенні.</li>
+                <li>У списку знайди репозиторій <code>webcourse</code> і натисни на нього.</li>
+                <li>У полі <strong>Build settings</strong> нічого не змінюй — для HTML/CSS/JS це не потрібно.</li>
+                <li>Натисни <strong>Deploy site</strong>.</li>
               </ol>
-            </div></div>
-          </article>
-
-          <article class="topic glass">
-            <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">03</span>
-              <span class="topic__title">Список справ на JavaScript</span>
-              <span class="topic__icon" aria-hidden="true"></span>
-            </button>
-            <div class="topic__body"><div class="topic__inner">
-              <p>Спробуй готовий приклад, а потім напиши такий самий сам:</p>
-              <form class="todo" id="todoForm">
-                <label for="todoInput" class="visually-hidden">Нова справа</label>
-                <input class="input" id="todoInput" type="text" placeholder="Нова справа…" maxlength="80" autocomplete="off" />
-                <button class="btn btn--primary" type="submit">Додати</button>
-              </form>
-              <ul class="todo__list" id="todoList"></ul>
+              <p class="note note--success">💫 Netlify опублікує сайт за кілька секунд, а після кожного <code>git push</code> оновлюватиме його автоматично.</p>
             </div></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTS -->
-    <section class="section" id="contacts">
+    <!-- 5. AI -->
+    <section class="section" id="ai">
       <div class="container">
         <header class="section__head reveal">
-          <span class="section__icon">✉</span>
+          <span class="section__icon">🤖</span>
           <div>
-            <h2 class="section__title">Контакти</h2>
-            <p class="section__subtitle">Питання, ідеї, пропозиції</p>
+            <p class="section__step">Етап 5</p>
+            <h2 class="section__title">ШІ для власної ідеї сайту</h2>
+            <p class="section__subtitle">ChatGPT та інші AI-інструменти як помічники</p>
           </div>
         </header>
 
         <div class="accordion reveal">
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">01</span>
-              <span class="topic__title">Написати повідомлення</span>
+              <span class="topic__num">5.1</span>
+              <span class="topic__title">Що можна доручити ШІ</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <form class="contact-form" id="contactForm" novalidate>
-                <div class="field">
-                  <label for="cName">Ім’я</label>
-                  <input class="input" id="cName" name="name" type="text" required />
-                </div>
-                <div class="field">
-                  <label for="cEmail">Email</label>
-                  <input class="input" id="cEmail" name="email" type="email" required />
-                </div>
-                <div class="field field--full">
-                  <label for="cMsg">Повідомлення</label>
-                  <textarea class="input" id="cMsg" name="message" rows="4" required></textarea>
-                </div>
-                <button class="btn btn--primary" type="submit">Надіслати</button>
-                <p class="form-status" id="formStatus" role="status"></p>
-              </form>
+              <div class="cards">
+                <div class="mini-card"><span class="mini-card__emoji">🧱</span><h4>HTML-шаблони</h4><p>«Зроби адаптивну сторінку з меню та футером»</p></div>
+                <div class="mini-card"><span class="mini-card__emoji">🎨</span><h4>CSS-стилі</h4><p>«Додай стиль як у сучасного сайту-портфоліо»</p></div>
+                <div class="mini-card"><span class="mini-card__emoji">⚡</span><h4>JS-скрипти</h4><p>«Зроби кнопку, яка змінює колір фону»</p></div>
+              </div>
             </div></div>
           </article>
 
           <article class="topic glass">
             <button class="topic__header" aria-expanded="false">
-              <span class="topic__num">02</span>
-              <span class="topic__title">Корисні ресурси</span>
+              <span class="topic__num">5.2</span>
+              <span class="topic__title">💡 Готовий промт для ChatGPT</span>
               <span class="topic__icon" aria-hidden="true"></span>
             </button>
             <div class="topic__body"><div class="topic__inner">
-              <ul class="links">
-                <li><a href="https://developer.mozilla.org/uk/" target="_blank" rel="noopener">MDN Web Docs — довідник з HTML, CSS, JS</a></li>
-                <li><a href="https://web.dev/learn" target="_blank" rel="noopener">web.dev/learn — курси від Google</a></li>
-                <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code — редактор коду</a></li>
-                <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I use — підтримка браузерами</a></li>
-              </ul>
+              <p>Скопіюй цей промт і додай у кінці свій контент:</p>
+<pre class="code code--prompt"><code>Створи повністю готовий сучасний адаптивний сайт (mobile-first), використовуючи чистий HTML5, CSS3 і JavaScript (без фреймворків), у трьох основних файлах index.html, style.css, script.js.
+
+У кожній секції має бути тема з назвою, яка розкривається при натисканні (плавне розгортання).
+
+- принцип mobile-first, щоб сайт коректно виглядав на смартфонах, планшетах і комп’ютерах;
+- мінімалістичний, чистий стиль (однотонний фон, м’які тіні, плавні переходи);
+- використовуй константи для кольорів та інших стилів;
+- плавні анімації для відкривання/закривання блоків;
+- ефект матового прозорого скла (glassmorphism) для карток та секцій.
+
+Використай цей контент для структури сторінки: [додай власний контент]</code></pre>
             </div></div>
           </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">5.3</span>
+              <span class="topic__title">Поради для ефективної роботи з ChatGPT</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Пиши конкретно, чітко формулюй завдання.</li>
+                <li>Проси «покроково» або «з прикладом».</li>
+                <li>Надсилай фрагменти свого коду — ChatGPT пояснить, що не працює.</li>
+                <li>Використовуй підказки:</li>
+              </ol>
+              <div class="tags">
+                <span class="tag">«Зроби цей код простішим»</span>
+                <span class="tag">«Додай анімацію при наведенні»</span>
+                <span class="tag">«Оптимізуй для швидкого завантаження»</span>
+              </div>
+              <p class="note">💡 Штучний інтелект не замінює тебе, а допомагає писати код швидше й з підказками.</p>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. GOOGLE -->
+    <section class="section" id="google">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon">🌍</span>
+          <div>
+            <p class="section__step">Етап 6</p>
+            <h2 class="section__title">Індексація в Google</h2>
+            <p class="section__subtitle">Щоб сайт знаходили в пошуку</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.1</span>
+              <span class="topic__title">🔎 Перевір доступність сайту</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Відкрий свій сайт, наприклад: <code>https://твій-сайт.netlify.app</code></li>
+                <li>Переконайся, що сторінка відкривається без помилок.</li>
+                <li>Скопіюй це посилання — воно знадобиться далі.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.2</span>
+              <span class="topic__title">🧭 Створи акаунт у Google Search Console</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Перейди на <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>.</li>
+                <li>Натисни <strong>«Почати» (Start now)</strong>.</li>
+                <li>Увійди під своїм акаунтом Google.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.3</span>
+              <span class="topic__title">🏠 Додай свій сайт</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Обери варіант <strong>«Префікс URL»</strong> (а не «Домен»).</li>
+                <li>Введи адресу сайту з Netlify, наприклад: <code>https://webcourse.netlify.app</code></li>
+                <li>Натисни <strong>Далі (Continue)</strong>.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.4</span>
+              <span class="topic__title">🔐 Підтверди власність сайту</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Google попросить підтвердити, що сайт належить тобі. Найпростіше — через <strong>HTML-тег</strong>:</p>
+              <ol class="list list--num">
+                <li>Обери метод <strong>«HTML tag»</strong> і скопіюй код такого вигляду:</li>
+              </ol>
+<pre class="code"><code>&lt;meta name="google-site-verification" content="твій_код_перевірки" /&gt;</code></pre>
+              <ol class="list list--num" start="2">
+                <li>Встав цей тег у розділ <code>&lt;head&gt;</code> файлу <code>index.html</code>:</li>
+              </ol>
+<pre class="code"><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="google-site-verification" content="твій_код_перевірки" /&gt;
+  &lt;title&gt;Мій сайт&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+              <ol class="list list--num" start="3">
+                <li>Збережи зміни, зроби коміт і push на GitHub, дочекайся оновлення на Netlify (1–2 хвилини).</li>
+                <li>Повернись у Google Search Console і натисни <strong>«Verify» (Перевірити)</strong>.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.5</span>
+              <span class="topic__title">🧭 Додай сайт в індексацію</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Після підтвердження відкрий вкладку <strong>URL Inspection (Перевірка URL)</strong>.</li>
+                <li>Встав адресу свого сайту:</li>
+              </ol>
+<pre class="code"><code>https://webcourse.netlify.app/</code></pre>
+              <ol class="list list--num" start="3">
+                <li>Натисни <strong>Request Indexing (Запросити індексацію)</strong>.</li>
+                <li>Google поставить сайт у чергу на сканування — зазвичай це займає кілька днів.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">6.6</span>
+              <span class="topic__title">🗺️ Додай sitemap.xml <span class="badge">необов’язково</span></span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Створи файл <code>sitemap.xml</code> у корені сайту:</li>
+              </ol>
+<pre class="code"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://webcourse.netlify.app/&lt;/loc&gt;
+    &lt;priority&gt;1.00&lt;/priority&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</code></pre>
+              <ol class="list list--num" start="2">
+                <li>Завантаж цей файл у репозиторій — Netlify оновить сайт.</li>
+                <li>У Google Search Console відкрий розділ <strong>Sitemaps</strong> і додай: <code>sitemap.xml</code></li>
+              </ol>
+            </div></div>
+          </article>
+        </div>
+
+        <div class="result glass reveal">
+          <span class="result__icon">✅</span>
+          <p><strong>Результат:</strong> через кілька днів твій сайт з’явиться в результатах пошуку Google.</p>
         </div>
       </div>
     </section>
@@ -485,12 +597,13 @@ btn.addEventListener('click', () =&gt; {
 
   <footer class="footer">
     <div class="container footer__inner glass">
-      <p>© <span id="year"></span> Веб з нуля · Зроблено на чистому HTML, CSS і JS</p>
+      <p>© <span id="year"></span> Шлях створення сайту · HTML, CSS і JS без фреймворків</p>
       <a href="#top" class="footer__top">Нагору ↑</a>
     </div>
   </footer>
 
   <button class="to-top glass" id="toTop" aria-label="Повернутися нагору">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
