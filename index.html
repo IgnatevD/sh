@@ -1,19 +1,497 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мій перший сайт</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Веб-розробка для початківців: HTML, CSS і JavaScript простою мовою." />
+  <meta name="theme-color" content="#eef1f7" />
+  <title>Веб з нуля — HTML, CSS, JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <h1>Всім привіт! 👋</h1>
-    <p>Це мій перший сайт на HTML, CSS і JavaScript.</p>
-    <button id="helloBtn">Натисни мене</button>
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="shape shape--1"></span>
+    <span class="shape shape--2"></span>
+    <span class="shape shape--3"></span>
+  </div>
 
-    <script src="script.js"></script>
+  <header class="header glass" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="logo"><span class="logo__mark">&lt;/&gt;</span> Веб з нуля</a>
+
+      <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav__link">Про проєкт</a>
+        <a href="#html" class="nav__link">HTML</a>
+        <a href="#css" class="nav__link">CSS</a>
+        <a href="#js" class="nav__link">JavaScript</a>
+        <a href="#practice" class="nav__link">Практика</a>
+        <a href="#contacts" class="nav__link">Контакти</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Перемкнути тему">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__card glass reveal">
+          <p class="hero__eyebrow">Курс для початківців · ХАІ</p>
+          <h1 class="hero__title">Створюй сайти з&nbsp;нуля — <span class="accent">крок за&nbsp;кроком</span></h1>
+          <p class="hero__text">Три мови, на яких тримається весь веб: HTML дає структуру, CSS — вигляд, JavaScript — поведінку. Обирай тему й натискай, щоб розгорнути.</p>
+          <div class="hero__actions">
+            <a href="#html" class="btn btn--primary">Почати навчання</a>
+            <button class="btn btn--ghost" id="toggleAll" aria-pressed="false">Розгорнути все</button>
+          </div>
+          <ul class="stats">
+            <li class="stats__item"><strong>3</strong><span>мови</span></li>
+            <li class="stats__item"><strong>19</strong><span>тем</span></li>
+            <li class="stats__item"><strong>0</strong><span>фреймворків</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon">✦</span>
+          <div>
+            <h2 class="section__title">Про проєкт</h2>
+            <p class="section__subtitle">Що це за сайт і як ним користуватися</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Для кого цей сайт</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Для студентів і всіх, хто робить перші кроки у веб-розробці. Не потрібно нічого встановлювати, крім браузера та текстового редактора.</p>
+              <ul class="list">
+                <li>Короткі пояснення без зайвої теорії</li>
+                <li>Приклади коду, які можна одразу спробувати</li>
+                <li>Порядок тем від простого до складного</li>
+              </ul>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Що знадобиться</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <div class="cards">
+                <div class="mini-card"><span class="mini-card__emoji">🌐</span><h4>Браузер</h4><p>Chrome, Firefox, Safari або Edge з інструментами розробника (F12).</p></div>
+                <div class="mini-card"><span class="mini-card__emoji">📝</span><h4>Редактор</h4><p>Visual Studio Code — безкоштовний і зручний.</p></div>
+                <div class="mini-card"><span class="mini-card__emoji">☕</span><h4>Терпіння</h4><p>Помилки — нормальна частина навчання.</p></div>
+              </div>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HTML -->
+    <section class="section" id="html">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon section__icon--html">H</span>
+          <div>
+            <h2 class="section__title">HTML5</h2>
+            <p class="section__subtitle">Каркас сторінки: що і де розташовано</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Структура документа</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Кожна сторінка починається з однакового «скелета». У <code>&lt;head&gt;</code> — службова інформація, у <code>&lt;body&gt;</code> — усе, що бачить користувач.</p>
+<pre class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Моя сторінка&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Привіт!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Семантичні теги</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Семантичні теги підказують браузеру, пошуковикам і екранним читачам, яку роль виконує блок.</p>
+              <div class="tags">
+                <span class="tag">&lt;header&gt;</span><span class="tag">&lt;nav&gt;</span><span class="tag">&lt;main&gt;</span>
+                <span class="tag">&lt;section&gt;</span><span class="tag">&lt;article&gt;</span><span class="tag">&lt;aside&gt;</span><span class="tag">&lt;footer&gt;</span>
+              </div>
+              <p class="note">💡 Замість десятка <code>&lt;div&gt;</code> обирай тег, що описує зміст.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">03</span>
+              <span class="topic__title">Посилання, зображення, списки</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+<pre class="code"><code>&lt;a href="https://khai.edu"&gt;Сайт ХАІ&lt;/a&gt;
+&lt;img src="photo.jpg" alt="Опис фото"&gt;
+&lt;ul&gt;
+  &lt;li&gt;Перший пункт&lt;/li&gt;
+  &lt;li&gt;Другий пункт&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+              <p class="note">💡 Атрибут <code>alt</code> обов’язковий: його читають люди з вадами зору.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">04</span>
+              <span class="topic__title">Форми</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Форми збирають дані від користувача. Кожне поле варто підписати через <code>&lt;label&gt;</code>.</p>
+<pre class="code"><code>&lt;form&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" type="email" required&gt;
+  &lt;button type="submit"&gt;Надіслати&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS -->
+    <section class="section" id="css">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon section__icon--css">C</span>
+          <div>
+            <h2 class="section__title">CSS3</h2>
+            <p class="section__subtitle">Кольори, відступи, сітки й анімації</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Селектори та каскад</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Селектор обирає елементи, а правила описують їхній вигляд. Якщо правила конфліктують, перемагає конкретніше або те, що написане пізніше.</p>
+<pre class="code"><code>p          { color: gray; }   /* тег   */
+.card      { padding: 16px; } /* клас  */
+#main      { width: 100%; }   /* id    */
+.btn:hover { opacity: .8; }   /* стан  */</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Змінні (custom properties)</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Кольори й розміри зручно тримати в одному місці. Саме так зроблено і цей сайт.</p>
+<pre class="code"><code>:root {
+  --color-accent: #5b6cff;
+  --radius: 16px;
+}
+.btn {
+  background: var(--color-accent);
+  border-radius: var(--radius);
+}</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">03</span>
+              <span class="topic__title">Flexbox і Grid</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p><strong>Flexbox</strong> вирівнює елементи в рядок або колонку, <strong>Grid</strong> будує двовимірну сітку.</p>
+              <div class="demo-grid" aria-hidden="true">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              </div>
+<pre class="code"><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">04</span>
+              <span class="topic__title">Mobile-first і медіазапити</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Спочатку пишемо стилі для телефона, а потім додаємо правила для ширших екранів. Змініть ширину вікна — цей сайт перебудується.</p>
+<pre class="code"><code>.cards { display: grid; gap: 12px; }
+
+@media (min-width: 768px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">05</span>
+              <span class="topic__title">Glassmorphism</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Ефект матового скла — напівпрозорий фон плюс розмиття того, що позаду.</p>
+<pre class="code"><code>.glass {
+  background: rgba(255, 255, 255, .45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, .6);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, .08);
+}</code></pre>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <section class="section" id="js">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon section__icon--js">JS</span>
+          <div>
+            <h2 class="section__title">JavaScript</h2>
+            <p class="section__subtitle">Оживлюємо сторінку</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Змінні та типи даних</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+<pre class="code"><code>const name = 'Олена';     // рядок, не змінюється
+let age = 19;             // число, можна змінити
+const isStudent = true;   // логічне значення
+const skills = ['HTML', 'CSS'];  // масив</code></pre>
+              <p class="note">💡 За замовчуванням пиши <code>const</code>, а <code>let</code> — лише коли значення справді змінюється.</p>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Функції</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+<pre class="code"><code>function greet(name) {
+  return `Привіт, ${name}!`;
+}
+
+const square = (n) =&gt; n * n;
+
+greet('ХАІ');  // "Привіт, ХАІ!"
+square(4);     // 16</code></pre>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">03</span>
+              <span class="topic__title">Робота з DOM і подіями</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>DOM — це сторінка у вигляді об’єктів, які JavaScript може змінювати. Спробуйте:</p>
+              <div class="demo">
+                <button class="btn btn--primary" id="counterBtn">Натиснули: <span id="counterValue">0</span></button>
+                <button class="btn btn--ghost" id="counterReset">Скинути</button>
+              </div>
+<pre class="code"><code>const btn = document.querySelector('#counterBtn');
+let count = 0;
+
+btn.addEventListener('click', () =&gt; {
+  count++;
+  btn.querySelector('span').textContent = count;
+});</code></pre>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="section" id="practice">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon">✎</span>
+          <div>
+            <h2 class="section__title">Практика</h2>
+            <p class="section__subtitle">Завдання, щоб закріпити знання</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Сторінка-візитка</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Створи <code>index.html</code> з фото, ім’ям і коротким описом.</li>
+                <li>Додай список своїх навичок і посилання на соцмережі.</li>
+                <li>Підключи <code>style.css</code> і винеси кольори у змінні.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Адаптивна галерея</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ol class="list list--num">
+                <li>Зроби сітку з 6–9 зображень через CSS Grid.</li>
+                <li>На телефоні — 1 колонка, на планшеті — 2, на ПК — 3.</li>
+                <li>Додай плавне збільшення картинки при наведенні.</li>
+              </ol>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">03</span>
+              <span class="topic__title">Список справ на JavaScript</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <p>Спробуй готовий приклад, а потім напиши такий самий сам:</p>
+              <form class="todo" id="todoForm">
+                <label for="todoInput" class="visually-hidden">Нова справа</label>
+                <input class="input" id="todoInput" type="text" placeholder="Нова справа…" maxlength="80" autocomplete="off" />
+                <button class="btn btn--primary" type="submit">Додати</button>
+              </form>
+              <ul class="todo__list" id="todoList"></ul>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section" id="contacts">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__icon">✉</span>
+          <div>
+            <h2 class="section__title">Контакти</h2>
+            <p class="section__subtitle">Питання, ідеї, пропозиції</p>
+          </div>
+        </header>
+
+        <div class="accordion reveal">
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">01</span>
+              <span class="topic__title">Написати повідомлення</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <form class="contact-form" id="contactForm" novalidate>
+                <div class="field">
+                  <label for="cName">Ім’я</label>
+                  <input class="input" id="cName" name="name" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="cEmail">Email</label>
+                  <input class="input" id="cEmail" name="email" type="email" required />
+                </div>
+                <div class="field field--full">
+                  <label for="cMsg">Повідомлення</label>
+                  <textarea class="input" id="cMsg" name="message" rows="4" required></textarea>
+                </div>
+                <button class="btn btn--primary" type="submit">Надіслати</button>
+                <p class="form-status" id="formStatus" role="status"></p>
+              </form>
+            </div></div>
+          </article>
+
+          <article class="topic glass">
+            <button class="topic__header" aria-expanded="false">
+              <span class="topic__num">02</span>
+              <span class="topic__title">Корисні ресурси</span>
+              <span class="topic__icon" aria-hidden="true"></span>
+            </button>
+            <div class="topic__body"><div class="topic__inner">
+              <ul class="links">
+                <li><a href="https://developer.mozilla.org/uk/" target="_blank" rel="noopener">MDN Web Docs — довідник з HTML, CSS, JS</a></li>
+                <li><a href="https://web.dev/learn" target="_blank" rel="noopener">web.dev/learn — курси від Google</a></li>
+                <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code — редактор коду</a></li>
+                <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I use — підтримка браузерами</a></li>
+              </ul>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner glass">
+      <p>© <span id="year"></span> Веб з нуля · Зроблено на чистому HTML, CSS і JS</p>
+      <a href="#top" class="footer__top">Нагору ↑</a>
+    </div>
+  </footer>
+
+  <button class="to-top glass" id="toTop" aria-label="Повернутися нагору">↑</button>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
