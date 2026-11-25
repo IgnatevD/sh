@@ -150,6 +150,7 @@ export function FloatingContact() {
   const { t } = useI18n();
   const links = useLinks();
   const [open, setOpen] = useState(false);
+  useEffect(() => { document.body.classList.toggle('fab-open', open); }, [open]);
   const list = [
     { k: 'tg', href: links.telegram, icon: <Icon.telegram />, label: t.contacts.tg },
     { k: 'wa', href: links.whatsapp, icon: <Icon.whatsapp />, label: t.contacts.wa },

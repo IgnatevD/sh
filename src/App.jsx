@@ -28,19 +28,23 @@ function useSpot(pathname) {
   useEffect(() => {
     if (pathname !== '/') return;
     setSection('top');
-    const ids = ['top', 'tours', 'contacts'];
+    const ids = ['top', 'tours', 'stories', 'about', 'gallery', 'reviews', 'contacts'];
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => e.isIntersecting && setSection(e.target.id));
     }, { rootMargin: '-40% 0px -55% 0px' });
     const t = setTimeout(() => ids.forEach((id) => { const el = document.getElementById(id); el && io.observe(el); }), 300);
     return () => { clearTimeout(t); io.disconnect(); };
   }, [pathname]);
-  if (pathname === '/') return ['top', 'tours', 'contacts'].includes(section) ? section : 'none';
+  if (pathname === '/') return ['top', 'tours', 'contacts'].includes(section) ? section : 'home';
   if (pathname === '/tours') return 'tours';
   if (pathname.startsWith('/tours/')) return 'tour';
   if (pathname === '/calendar') return 'calendar';
   if (pathname === '/contacts') return 'contacts';
-  return 'none';
+  if (pathname === '/news') return 'news';
+  if (pathname.startsWith('/news/')) return 'post';
+  if (pathname === '/about') return 'about';
+  if (pathname === '/gallery') return 'gallery';
+  return 'lost';
 }
 
 function ScrollManager() {

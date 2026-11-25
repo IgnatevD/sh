@@ -52,7 +52,7 @@ export function Manifesto() {
 export function Stats() {
   const { t } = useI18n();
   const items = [
-    { to: 10, s: '+', l: t.stats.years },
+    { to: 13, s: '+', l: t.stats.years },
     { to: 12, s: '', l: t.stats.regions },
     { to: 440, s: '+', l: t.stats.km },
     { to: 4808, s: '', l: t.stats.peak },
