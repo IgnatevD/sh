@@ -88,7 +88,7 @@ export default function Climbers() {
 
     const frame = (now) => {
       raf = requestAnimationFrame(frame);
-      if (!visible) return;
+      if (!visible || !teamRef.current || !ropeRef.current || parts.current.length < TEAM) return;
       const t = reduced ? WALK + 500 : (now - t0) % CYCLE;
       const walkP = ease(clamp(t / WALK, 0, 1));
       const celebrating = t > WALK && t < WALK + HOLD;

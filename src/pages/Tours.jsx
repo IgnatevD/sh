@@ -7,6 +7,7 @@ import { Icon } from '../components/Icons.jsx';
 import { Head } from '../components/Sections.jsx';
 import { TourCard, Level, Price, Profile, fmtRange } from '../components/Tours.jsx';
 import PageHero from '../components/PageHero.jsx';
+import FilterChips from '../components/Filters.jsx';
 import Contacts from '../components/Contacts.jsx';
 import NotFound from './NotFound.jsx';
 
@@ -41,14 +42,8 @@ export default function ToursPage() {
       <section className="section section--tight">
         <div className="container">
           <div className="tfilters">
-            <div className="filters" role="tablist">
-              {['', ...regions].map((r) => (
-                <button key={r || 'all'} className={region === r ? 'is-on' : ''} onClick={() => set('region', r)}>
-                  {region === r && <motion.span layoutId="regionPill" className="filters__pill" />}
-                  <span>{r ? t.pages.regions[r] || r : t.pages.all}</span>
-                </button>
-              ))}
-            </div>
+            <FilterChips value={region} onChange={(v) => set('region', v)}
+              options={[['', t.pages.all, all.length], ...regions.map((r) => [r, t.pages.regions[r] || r, all.filter((x) => x.region === r).length])]} />
             <div className="tfilters__selects">
               <label className="sel"><span>{t.pages.level}</span>
                 <select value={level} onChange={(e) => set('level', e.target.value)}>

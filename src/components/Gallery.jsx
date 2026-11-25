@@ -6,6 +6,7 @@ import { photo, useContent } from '../content.jsx';
 import { galleryCats } from '../data/photos.js';
 import { Icon } from './Icons.jsx';
 import { Head } from './Sections.jsx';
+import FilterChips from './Filters.jsx';
 
 function Lightbox({ list, index, onClose }) {
   const [i, setI] = useState(index);
@@ -51,14 +52,8 @@ export default function Gallery({ limit = 18, withHead = true }) {
     <section className="section gallery" id="gallery">
       <div className="container">
         {withHead && <Head eyebrow={t.gallery.eyebrow} title={t.gallery.title} camp={4} />}
-        <div className="filters" role="tablist">
-          {galleryCats.map((c) => (
-            <button key={c} className={cat === c ? 'is-on' : ''} onClick={() => setCat(c)} role="tab" aria-selected={cat === c}>
-              {cat === c && <motion.span layoutId="filterPill" className="filters__pill" transition={{ type: 'spring', stiffness: 400, damping: 30 }} />}
-              <span>{t.gallery.cats[c]}</span>
-            </button>
-          ))}
-        </div>
+        <FilterChips center value={cat} onChange={(v) => { setCat(v); setMore(false); }}
+          options={galleryCats.map((c) => [c, t.gallery.cats[c], c === 'all' ? gallery.length : gallery.filter((g) => g.cat === c).length])} />
         <motion.div className="masonry" layout>
           <AnimatePresence mode="popLayout">
             {shown.map((g, i) => (

@@ -1,5 +1,6 @@
 // Site "chrome": header, preloader, altimeter, floating contact button, footer
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useI18n } from '../i18n.jsx';
 import { useLinks } from '../content.jsx';
@@ -33,13 +34,15 @@ export function Header({ theme, setTheme }) {
   });
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
   }, [open]);
   useEffect(() => setOpen(false), [loc.pathname]);
   const items = [['tours', '/tours'], ['calendar', '/calendar'], ['news', '/news'], ['gallery', '/gallery'], ['about', '/about'], ['contacts', '/contacts']];
   const solid = loc.pathname !== '/';
 
   return (
-    <header className={`header ${scrolled || solid ? 'is-scrolled' : ''} ${hidden ? 'is-hidden' : ''}`}>
+    <>
+    <header className={`header ${scrolled || solid || open ? 'is-scrolled' : ''} ${hidden ? 'is-hidden' : ''} ${open ? 'is-menu' : ''}`}>
       <div className="container header__inner">
         <Logo />
         <nav className="nav">
@@ -64,6 +67,8 @@ export function Header({ theme, setTheme }) {
         </div>
       </div>
 
+    </header>
+    {createPortal(
       <AnimatePresence>
         {open && (
           <motion.div className="mnav" initial={{ clipPath: 'circle(0% at 92% 4%)' }} animate={{ clipPath: 'circle(150% at 92% 4%)' }} exit={{ clipPath: 'circle(0% at 92% 4%)' }} transition={{ duration: 0.6, ease: [0.7, 0, 0.2, 1] }}>
@@ -82,8 +87,10 @@ export function Header({ theme, setTheme }) {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </header>
+      </AnimatePresence>,
+      document.body
+    )}
+    </>
   );
 }
 
